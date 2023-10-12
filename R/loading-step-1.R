@@ -11,7 +11,7 @@ f = function(x, pos){
 }
 
 read_lines_chunked(
-  file = 'input/enwiki-20231002-cirrussearch-content.json',
+  file = 'input/enwiki-20231002-cirrussearch-content.json.gz',
   chunk_size = 100000,
   callback = SideEffectChunkCallback$new(f),
   progress = show_progress())
