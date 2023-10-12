@@ -5,7 +5,8 @@ Currently, this repo containts R scripts that take a Wikipedia Nightly Export th
 
 ### Step 1: Break the large nightly file into smaller chunks
 
-Get a nightly file from https://dumps.wikimedia.org/other/cirrussearch/ I use the latest en-*date*-cirrussearch.json.gz file
+Get a nightly file from https://dumps.wikimedia.org/other/cirrussearch/ 
+I use the latest en-*date*-cirrussearch.json.gz file
 
 ### Step 2: Load each json chunk into a dataframe
 
