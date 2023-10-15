@@ -49,5 +49,7 @@ po/*~
 rsconnect/
 .DS_Store
 
-output/wiki-exports/
-input/wiki-chunks
+outputs/**/chunks/
+outputs/**/compiled/
+
+nightly
