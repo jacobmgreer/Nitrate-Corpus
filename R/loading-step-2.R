@@ -3,11 +3,11 @@ library(jsonlite)
 library(magrittr)
 
 ##### Unpacking the RData json data
-filelist <- list.files("input/wiki-chunks", pattern="RData$", full.names = FALSE, recursive = FALSE)
+filelist <- list.files(paste0("outputs/", lang, "/chunks"), pattern="RData$", full.names = FALSE, recursive = FALSE)
 
 for (i in 1:length(filelist)) {
 
-  get(load(paste0("input/wiki-chunks/", filelist[i]))) %>%
+  get(load(paste0("outputs/", lang, "/chunks/", filelist[i]))) %>%
     enframe %>%
     unnest(cols = c(value)) %>%
     filter(!grepl('^\\{\"index\"', value)) %>%
@@ -19,7 +19,7 @@ for (i in 1:length(filelist)) {
     filter(grepl("imdb.com/", external_link)) %>%
     rowwise %>%
     mutate_if(is.list, ~paste(unlist(.), collapse = '|')) %>%
-    write.csv(., paste0("output/wiki-exports/film-list-", i, ".csv"), row.names = FALSE)
+    write.csv(., paste0("outputs/", lang, "/compiled/film-list-", i, ".csv"), row.names = FALSE)
 
   message(paste("Run", i, "completed!"))
 }

@@ -6,7 +6,7 @@ library(qdapRegex)
 ## combines the chunks into one list
 
 films <-
-  list.files("output/wiki-exports", "*.csv") %>%
-  map_df(~read_csv(paste0("output/wiki-exports/", .), show_col_types = FALSE)) %>%
+  list.files(paste0("outputs/", lang, "/compiled"), "*.csv") %>%
+  map_df(~read_csv(paste0("outputs/", lang, "/compiled/", .), show_col_types = FALSE)) %>%
   mutate(source_text = gsub("\\s+", " ", str_trim(source_text))) %>%
   arrange(desc(popularity_score))
