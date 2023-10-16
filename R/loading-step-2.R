@@ -23,4 +23,6 @@ for (i in 1:length(filelist)) {
   message(paste("Run", i, "completed!"))
 }
 
+unlink(file.path(paste0("outputs/", lang), "chunks"), recursive = TRUE, force = FALSE)
+
 rm(i, filelist, x)

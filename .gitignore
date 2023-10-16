@@ -53,3 +53,5 @@ outputs/**/chunks/
 outputs/**/compiled/
 
 nightly
+
+*films-raw.csv*
