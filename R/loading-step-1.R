@@ -6,9 +6,8 @@ library(jsonlite)
 ### R can unzip the gz file without any additional code,
 ### but I find it's faster to do that first outside R
 
-filename <- "dewiki-20231009-cirrussearch-content.json" ## file name .gz or .json
-
-lang <- "de" ## language short code
+filename <- "elwiki-20231009-cirrussearch-content.json" ## file name .gz or .json
+lang <- "el" ## language short code
 
 ## deletes contents of lang folder and creates subfolders
 unlink(paste0("outputs/", filename), recursive = TRUE, force = FALSE)
