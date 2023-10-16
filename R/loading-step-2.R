@@ -6,7 +6,6 @@ library(magrittr)
 filelist <- list.files(paste0("outputs/", lang, "/chunks"), pattern="RData$", full.names = FALSE, recursive = FALSE)
 
 for (i in 1:length(filelist)) {
-
   get(load(paste0("outputs/", lang, "/chunks/", filelist[i]))) %>%
     enframe %>%
     unnest(cols = c(value)) %>%
