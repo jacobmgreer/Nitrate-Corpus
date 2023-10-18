@@ -33,13 +33,13 @@ find.imdb.tt <-
   mutate(
     status = ifelse(title == primaryTitle, "match", "not exact match")) %>%
   distinct() %>%
-  left_join(
-    read_csv("~/GitHub/Nitrate-SPARQL/output/wikidata-imdb-films.csv") %>% rename(QID.imdb = imdb),
-    by=c("wikibase_item" = "QID"),
-    relationship = "many-to-many") %>%
-  mutate(
-    imdb.status = ifelse(FilmID == QID.imdb, "match", NA)) %>%
-  filter(is.na(QID.imdb)) %>%
+  # left_join(
+  #   read_csv("~/GitHub/Nitrate-SPARQL/output/wikidata-imdb-films.csv") %>% rename(QID.imdb = imdb),
+  #   by=c("wikibase_item" = "QID"),
+  #   relationship = "many-to-many") %>%
+  # mutate(
+  #   imdb.status = ifelse(FilmID == QID.imdb, "match", NA)) %>%
+  # filter(is.na(QID.imdb)) %>%
   group_by(wikibase_item) %>% filter(!(n() > 1)) %>% ungroup() %T>%
   write.csv(., paste0("outputs/", lang, "/", lang, "-wiki-imdb-films.csv"), row.names = FALSE)
 
